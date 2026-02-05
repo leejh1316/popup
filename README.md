@@ -12,7 +12,7 @@
 ## 설치 (Installation)
 
 ```bash
-npm install @hyeok/popup
+npm install @leejaehyeok/popup
 
 ```
 
@@ -62,6 +62,7 @@ npm install @hyeok/popup
   ```typescript
   popupInstance.setOptions({ placement: "top", gap: 20 });
   ```
+  w
 
 ### 설정 옵션 (`Options`)
 
