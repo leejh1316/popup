@@ -3,7 +3,7 @@ import vue from "@vitejs/plugin-vue";
 import path from "path";
 // https://vite.dev/config/
 export default defineConfig(() => {
-  const baseUrl = "/vue-popup/";
+  const baseUrl = "/popup/";
   return {
     plugins: [vue()],
     resolve: {
