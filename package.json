@@ -1,11 +1,25 @@
 {
-  "name": "popup",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@hyeok/popup",
+  "private": false,
+  "version": "0.1.0",
   "type": "module",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:lib": "vite build --config vite.config.lib.ts",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -23,6 +37,7 @@
     "sass": "^1.97.3",
     "typescript": "~5.9.3",
     "vite": "^7.2.4",
+    "vite-plugin-dts": "^4.5.4",
     "vue-tsc": "^3.1.4"
   }
 }
