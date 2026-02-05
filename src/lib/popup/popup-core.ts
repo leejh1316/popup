@@ -22,8 +22,6 @@ const defaultOptions: Options = {
   },
   mode: {
     auto: true,
-    hide: true,
-    push: false,
   },
   gap: defaultGap,
 };
@@ -83,8 +81,6 @@ export class Popup {
   private modeManage(): void {
     this.positionUpdate();
     this.auto();
-    this.push();
-    this.hide();
   }
 
   // 26.02.03 수정 scroll이나 resize로 인한 위치변경시 위치 재조정
@@ -129,20 +125,6 @@ export class Popup {
           }
         }
       }
-    }
-  }
-  private push(): void {
-    if (this.options.mode?.push) {
-      //밀기 clientRect.left, top으로 체크 가능
-      //범위 refer의 top
-      // const place = usePlacement(this.options.placement, this.referenceElement.getBoundingClientRect(), this.popupElement.getBoundingClientRect(), this.options)
-      // this.currentCoordinate = this.placementStrategy.getOverflowPreventCoordinate(this.currentCoordinate)
-      // this.place(this.currentCoordinate);
-      // console.log(this.popupElement.getBoundingClientRect)
-    }
-  }
-  private hide(): void {
-    if (this.options.mode?.hide) {
     }
   }
   private eventManage(): void {
