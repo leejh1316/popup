@@ -17,6 +17,11 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leejh1316/popup.git"
+  },
+  "homepage": "https://leejh1316.github.io/popup/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
