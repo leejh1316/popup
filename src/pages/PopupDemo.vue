@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch } from "vue";
-import { createPopup, Popup } from "../lib/vue-popup";
-import type { Placement } from "../lib/vue-popup/types/options";
+import { createPopup, Popup } from "../lib/popup";
+import type { Placement } from "../lib/popup/types/options";
 
 // All placements
 const placements: Placement[] = [
@@ -71,20 +71,20 @@ onBeforeUnmount(() => {
 <template>
   <div class="demo-page">
     <header class="demo-header">
-      <h1>Vue Popup</h1>
-      <p>A lightweight popup positioning library for Vue 3</p>
+      <h1>JS 팝업</h1>
+      <p>경량 팝업 위치 지정 라이브러리</p>
     </header>
 
     <!-- Main Demo Section -->
     <section class="demo-section">
-      <h2>Placement Demo</h2>
+      <h2>데모</h2>
       <p class="section-desc">
-        Current: <code>{{ currentPlacement }}</code>
+        현재 위치: <code>{{ currentPlacement }}</code>
       </p>
 
       <div class="main-demo-area">
         <div id="main-reference" class="reference-box">
-          Reference
+          기준 요소
           <div id="main-popup" class="popup-box">
             {{ currentPlacement }}
           </div>
@@ -94,20 +94,24 @@ onBeforeUnmount(() => {
 
     <!-- Mode  -->
     <section class="demo-section">
-      <h2>Select Mode</h2>
-      <p class="section-desc">Toggle auto mode on/off</p>
+      <h2>모드 선택</h2>
+      <p class="section-desc">자동 모드 켜기/끄기</p>
       <div>
         <label>
-          <input type="checkbox" v-model="autoMode" @change="changePlacement(currentPlacement)" />
-          Auto Mode
+          <input
+            type="checkbox"
+            v-model="autoMode"
+            @change="changePlacement(currentPlacement)"
+          />
+          자동 모드
         </label>
       </div>
     </section>
 
     <!-- Placement Selector -->
     <section class="demo-section">
-      <h2>Select Placement</h2>
-      <p class="section-desc">Click to change popup position</p>
+      <h2>위치 선택</h2>
+      <p class="section-desc">클릭하여 팝업 위치 변경</p>
 
       <div class="placement-grid">
         <!-- Top Row -->
@@ -163,7 +167,11 @@ onBeforeUnmount(() => {
         <!-- Bottom Row -->
         <div class="placement-row">
           <button
-            v-for="p in ['bottom-left', 'bottom', 'bottom-right'] as Placement[]"
+            v-for="p in [
+              'bottom-left',
+              'bottom',
+              'bottom-right',
+            ] as Placement[]"
             :key="p"
             class="placement-btn"
             :class="{ active: currentPlacement === p }"
@@ -177,7 +185,7 @@ onBeforeUnmount(() => {
 
     <!-- Code Example -->
     <section class="demo-section">
-      <h2>Usage</h2>
+      <h2>사용법</h2>
       <div class="code-block">
         <pre><code>const reference = document.querySelector('#reference')
 const popup = document.querySelector('#popup')
@@ -195,12 +203,12 @@ const myPopup = createPopup(reference, popup, {
 
     <!-- Options Section -->
     <section class="demo-section">
-      <h2>Options</h2>
+      <h2>옵션</h2>
       <div class="options-table">
         <div class="option-row header">
-          <span>Option</span>
-          <span>Type</span>
-          <span>Default</span>
+          <span>옵션명</span>
+          <span>타입</span>
+          <span>기본값</span>
         </div>
         <div class="option-row">
           <span>placement</span>
@@ -232,7 +240,7 @@ const myPopup = createPopup(reference, popup, {
 
     <!-- All Placements Visual -->
     <section class="demo-section">
-      <h2>All Placements</h2>
+      <h2>모든 위치 목록</h2>
       <div class="placements-list">
         <span v-for="p in placements" :key="p" class="placement-tag">
           {{ p }}
